@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'shop',
+    'search_app',
 
 ]
 
@@ -57,7 +58,8 @@ ROOT_URLCONF = 'resonance.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR.joinpath('templates'))],
+        'DIRS': [str(BASE_DIR.joinpath('shop','templates')),
+                 str(BASE_DIR.joinpath('search_app','templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
