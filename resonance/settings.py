@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'accounts',
     'shop',
     'search_app',
+    'cart',
+    'stripe',
+    'order',
+    'crispy_forms',
 
 ]
 
@@ -59,7 +63,10 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [str(BASE_DIR.joinpath('shop','templates')),
-                 str(BASE_DIR.joinpath('search_app','templates'))],
+                 str(BASE_DIR.joinpath('search_app','templates')),
+                 str(BASE_DIR.joinpath('cart','templates')),
+                 str(BASE_DIR.joinpath( 'templates'))],
+                 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'shop.context_processors.menu_links',
+                'cart.context_processors.counter',
             ],
         },
     },
@@ -139,3 +147,9 @@ STATICFILES_FINDERS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
+STRIPE_SECRET_KEY = 'sk_test_51K6VDADXlZgWAnprM6uxMZMjlHbcgY4xeVl2GFWVpUOs0najRYoG9oKDfYhl41DVl5yn45g73PAdHTiVZcuDNVYR00e9JjjKzb'
+STRIPE_PUBLISHABLE_KEY ='pk_test_51K6VDADXlZgWAnprlha8O4K5KRuXJCMFmPwfhEVqOnB4Q9M2KVWPHmZ3Sw0nRYDcZZjf6RRmJq0fzzGSmccB2AST00bZKdXxqY'
+
+LOGIN_REDIRECT_URL = 'base'
+LOGOUT_REDIRECT_URL ='base'
